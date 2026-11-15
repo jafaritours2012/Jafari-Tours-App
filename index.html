@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06452f">
+<title>Jafari Tours & Travels</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f7f5ed;color:#183c2b}
+header{background:linear-gradient(135deg,#063c29,#08764c);color:white;padding:25px 18px 30px;border-radius:0 0 28px 28px}
+.brand{font-size:13px;letter-spacing:3px;color:#e7c778}
+header h1{font-family:Georgia,serif;font-size:29px;margin:12px 0}
+header p{font-size:14px;color:#e9e5d7}
+.logo{font-size:42px;margin-bottom:8px}
+.container{padding:20px 16px;max-width:650px;margin:auto}
+h2{font-family:Georgia,serif;margin:12px 0 15px;color:#075237}
+.intro{background:white;border:1px solid #e5d6aa;border-radius:18px;padding:18px;margin-bottom:22px;line-height:1.6}
+.intro strong{color:#08764c}
+.packages{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.package{background:white;border:1px solid #e4d5a8;border-radius:16px;padding:17px 12px;text-align:center;box-shadow:0 4px 12px #173c2510}
+.package .symbol{font-size:32px}
+.package h3{font-family:Georgia,serif;margin:9px 0;color:#075237}
+.package p{font-size:13px;color:#666;line-height:1.5}
+.package button,.mainbtn{border:0;background:#075237;color:white;padding:11px 15px;border-radius:25px;margin-top:13px;font-weight:bold;width:100%;cursor:pointer}
+.highlight{background:linear-gradient(135deg,#075237,#0a7650);color:white;border-radius:18px;padding:20px;margin:23px 0;text-align:center}
+.highlight h2{color:#f5d889;margin:0 0 8px}
+.highlight p{font-size:14px;line-height:1.6}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.service{background:white;padding:15px;border-radius:12px;text-align:center;font-size:14px;border:1px solid #eee3c8}
+.contact{background:white;padding:19px;border-radius:18px;border:1px solid #e5d6aa;line-height:1.9}
+.contact strong{color:#075237}
+.contact a{color:#075237;text-decoration:none;font-weight:bold}
+footer{text-align:center;padding:22px 10px;color:#777;font-size:12px}
+.whatsapp{position:fixed;bottom:18px;right:18px;background:#159c58;color:white;text-decoration:none;padding:14px 19px;border-radius:30px;font-weight:bold;box-shadow:0 4px 15px #0003}
+@media(max-width:360px){header h1{font-size:25px}.packages{gap:8px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">✈️ 🚌</div>
+  <div class="brand">WELCOME TO</div>
+  <h1>JAFARI TOURS & TRAVELS</h1>
+  <p>Domestic & International Travel</p>
+  <p>Organizers of Umrah & Ziyarat</p>
+</header>
+
+<main class="container">
+
+<section class="intro">
+  <strong>Your Ziyarat, Our Responsibility</strong>
+  <p>Make your spiritual journey memorable with Jafari Tours & Travels. Explore our Umrah and Ziyarat packages and contact us for booking details.</p>
+</section>
+
+<h2>Our Travel Packages</h2>
+<section class="packages">
+
+<div class="package">
+  <div class="symbol">🕋</div>
+  <h3>Umrah</h3>
+  <p>Holy journey to Makkah & Madinah</p>
+  <button onclick="enquire('Umrah Package')">Enquire Now</button>
+</div>
+
+<div class="package">
+  <div class="symbol">🕌</div>
+  <h3>Iraq Ziyarat</h3>
+  <p>Karbala, Najaf, Kadhimain & Samarra</p>
+  <button onclick="enquire('Iraq Ziyarat')">Enquire Now</button>
+</div>
+
+<div class="package">
+  <div class="symbol">🌙</div>
+  <h3>Iran Ziyarat</h3>
+  <p>Mashhad, Qom & other holy places</p>
+  <button onclick="enquire('Iran Ziyarat')">Enquire Now</button>
+</div>
+
+<div class="package">
+  <div class="symbol">✈️</div>
+  <h3>Iran – Iraq</h3>
+  <p>Combined Ziyarat journey</p>
+  <button onclick="enquire('Iran Iraq Package')">Enquire Now</button>
+</div>
+
+</section>
+
+<section class="highlight">
+  <h2>Plan Your Next Journey</h2>
+  <p>Get package details, travel dates and booking assistance directly from our team.</p>
+  <button class="mainbtn" onclick="enquire('General Travel Enquiry')">Send Enquiry on WhatsApp</button>
+</section>
+
+<h2>Our Services</h2>
+<section class="services">
+  <div class="service">🛂 Visa Assistance</div>
+  <div class="service">✈️ Air Tickets</div>
+  <div class="service">🏨 Hotel Booking</div>
+  <div class="service">🚌 Transportation</div>
+  <div class="service">🍽️ Meals</div>
+  <div class="service">🕌 Ziyarat Tours</div>
+</section>
+
+<h2 style="margin-top:25px">Contact Us</h2>
+<section class="contact">
+  <p><strong>Jafari Tours & Travels</strong></p>
+  <p>Mohammed Reza</p>
+  <p>📞 <a href="tel:+919930607640">+91 99306 07640</a></p>
+  <p>📍 Mumbai, India</p>
+  <button class="mainbtn" onclick="enquire('Contact and Booking')">Contact for Booking</button>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Jafari Tours & Travels<br>
+  Your Ziyarat, Our Responsibility
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919930607640" target="_blank">WhatsApp</a>
+
+<script>
+function enquire(packageName){
+  const message = "Assalamu Alaikum, I want details about " + packageName + ". Please share the package details.";
+  window.open("https://wa.me/919930607640?text=" + encodeURIComponent(message), "_blank");
+}
+</script>
+
+</body>
+</html>
