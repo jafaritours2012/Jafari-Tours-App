@@ -195,8 +195,8 @@
     <section class="section" id="contact">
       <div class="section-head"><span>We are here to help</span><h2>Contact Our Team</h2><p>Speak with our Mumbai team for package details and booking assistance.</p></div>
       <div class="contacts">
-        <div class="contact-card"><strong>Faiz Mohammed</strong><a href="tel:+918268571786">+91 82685 71786</a><br><a href="https://wa.me/918268571786" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
-        <div class="contact-card"><strong>Mohammed Reza</strong><a href="tel:+919930607640">+91 99306 07640</a><br><a href="https://wa.me/919930607640" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
+        <div class="contact-card"><strong>Faiz Mohammed</strong><small>Jafari Tours & Travels • Mumbai</small><a href="tel:+918268571786">+91 82685 71786</a><br><a href="https://wa.me/918268571786" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
+        <div class="contact-card"><strong>Mohammed Reza</strong><small>Jafari Tours & Travels • Mumbai</small><a href="tel:+919930607640">+91 99306 07640</a><br><a href="https://wa.me/919930607640" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
       </div>
       <div class="address"><strong>Jafari Tours & Travels</strong><br>Mumbai, Maharashtra, India<br>Domestic & International Travel • Hajj • Umrah • Ziyarat</div>
     </section>
@@ -205,11 +205,19 @@
   <a class="wa-float" href="https://wa.me/919930607640?text=Assalamu%20Alaikum%2C%20I%20want%20travel%20package%20details." target="_blank" rel="noopener">WhatsApp</a>
   <script>
     function choosePackage(name){document.getElementById('package').value=name;document.getElementById('booking').scrollIntoView({behavior:'smooth'});}
+    function sendToPartner(message){
+      const choice=prompt('Choose your Jafari Tours & Travels contact\n\n1. Mohammed Reza – +91 99306 07640\n2. Faiz Mohammed – +91 82685 71786\n\nEnter 1 or 2:');
+      if(choice===null) return;
+      const option=choice.trim();
+      let number='';
+      if(option==='1') number='919930607640';
+      else if(option==='2') number='918268571786';
+      else { alert('Please enter 1 for Mohammed Reza or 2 for Faiz Mohammed.'); return; }
+      window.open('https://wa.me/'+number+'?text='+encodeURIComponent(message),'_blank','noopener');
+    }
     function chooseService(name){
-      const box=document.getElementById('message');
-      box.value='I would like to enquire about: '+name+(box.value?'\\n'+box.value:'');
-      document.getElementById('booking').scrollIntoView({behavior:'smooth'});
-      setTimeout(()=>box.focus({preventScroll:true}),450);
+      const msg='Assalamu Alaikum, I would like to enquire about: '+name+'. Please share the details.';
+      sendToPartner(msg);
     }
     document.getElementById('enquiryForm').addEventListener('submit',function(e){
       e.preventDefault();
@@ -221,7 +229,7 @@
         'Travellers: '+d.get('travellers'),'Departure city: '+(d.get('city')||'Not specified'),
         'Message: '+(d.get('message')||'None')
       ].join('\n');
-      window.open('https://wa.me/919930607640?text='+encodeURIComponent(msg),'_blank','noopener');
+      sendToPartner(msg);
     });
     document.getElementById('year').textContent=new Date().getFullYear();
     if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
