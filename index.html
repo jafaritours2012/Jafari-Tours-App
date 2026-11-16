@@ -69,7 +69,7 @@
     .points{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .point{border:1px solid rgba(238,215,158,.35);background:#ffffff0c;border-radius:14px;padding:14px;font-size:13px}
     .services{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .service{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px 12px;text-align:center;color:#315345;font-weight:700;font-size:13px}
+    .service{appearance:none;width:100%;font-family:inherit;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px 12px;text-align:center;color:#315345;font-weight:700;font-size:13px;transition:.2s}.service:hover,.service:focus-visible{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 20px rgba(8,50,36,.10);outline:none}
     .service b{display:block;font-size:24px;margin-bottom:8px}
     .booking{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow);display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
     .booking h2{font-family:Georgia,serif;color:var(--green);font-size:30px;margin:0 0 10px}
@@ -164,10 +164,14 @@
     <section class="section" id="services">
       <div class="section-head"><span>Travel support</span><h2>Our Services</h2><p>One point of contact for your travel enquiries.</p></div>
       <div class="services">
-        <div class="service"><b>🛂</b>Visa Assistance</div><div class="service"><b>✈️</b>Air Ticket Enquiry</div>
-        <div class="service"><b>🏨</b>Hotel Booking</div><div class="service"><b>🚌</b>Transport Enquiry</div>
-        <div class="service"><b>🗺️</b>Tour Itinerary</div><div class="service"><b>🕌</b>Ziyarat Guidance</div>
-        <div class="service"><b>👨‍👩‍👧‍👦</b>Family & Group Tours</div><div class="service"><b>📞</b>Booking Support</div>
+        <button class="service" type="button" onclick="chooseService('Visa Assistance')"><b>🛂</b>Visa Assistance</button>
+        <button class="service" type="button" onclick="chooseService('Air Ticket Enquiry')"><b>✈️</b>Air Ticket Enquiry</button>
+        <button class="service" type="button" onclick="chooseService('Hotel Booking')"><b>🏨</b>Hotel Booking</button>
+        <button class="service" type="button" onclick="chooseService('Transport Enquiry')"><b>🚌</b>Transport Enquiry</button>
+        <button class="service" type="button" onclick="chooseService('Tour Itinerary')"><b>🗺️</b>Tour Itinerary</button>
+        <button class="service" type="button" onclick="chooseService('Ziyarat Guidance')"><b>🕌</b>Ziyarat Guidance</button>
+        <button class="service" type="button" onclick="chooseService('Family & Group Tours')"><b>👨‍👩‍👧‍👦</b>Family & Group Tours</button>
+        <button class="service" type="button" onclick="chooseService('Booking Support')"><b>📞</b>Booking Support</button>
       </div>
     </section>
 
@@ -191,7 +195,6 @@
     <section class="section" id="contact">
       <div class="section-head"><span>We are here to help</span><h2>Contact Our Team</h2><p>Speak with our Mumbai team for package details and booking assistance.</p></div>
       <div class="contacts">
-        <div class="contact-card"><strong>Faiz Mohammed</strong><small>Jafari Tours & Travels • Mumbai</small><a href="tel:+918268571786">+91 82685 71786</a><br><a href="https://wa.me/918268571786" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
         <div class="contact-card"><strong>Mohammed Reza</strong><small>Jafari Tours & Travels • Mumbai</small><a href="tel:+919930607640">+91 99306 07640</a><br><a href="https://wa.me/919930607640" target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
       </div>
       <div class="address"><strong>Jafari Tours & Travels</strong><br>Mumbai, Maharashtra, India<br>Domestic & International Travel • Hajj • Umrah • Ziyarat</div>
@@ -201,6 +204,12 @@
   <a class="wa-float" href="https://wa.me/919930607640?text=Assalamu%20Alaikum%2C%20I%20want%20travel%20package%20details." target="_blank" rel="noopener">WhatsApp</a>
   <script>
     function choosePackage(name){document.getElementById('package').value=name;document.getElementById('booking').scrollIntoView({behavior:'smooth'});}
+    function chooseService(name){
+      const box=document.getElementById('message');
+      box.value='I would like to enquire about: '+name+(box.value?'\\n'+box.value:'');
+      document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+      setTimeout(()=>box.focus({preventScroll:true}),450);
+    }
     document.getElementById('enquiryForm').addEventListener('submit',function(e){
       e.preventDefault();
       const d=new FormData(this);
